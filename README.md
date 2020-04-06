@@ -1,24 +1,10 @@
-# README
+4/6（取組開始）→4/20
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+自分が苦労した点
+学んだ点
+自慢したい・相談したい点
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+4/6
+目標
+ユーザーモデルを作成し、文字ベースで投稿できるところまで作成する

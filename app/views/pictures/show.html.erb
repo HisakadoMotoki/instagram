@@ -1,4 +1,6 @@
 <h1><%= @pic.title %></h1>
 <p><%= @pic.description %></p>
 
+<%= link_to "編集", edit_picture_path %>
 <%= link_to "戻る", root_path %>
+<%= link_to "消去", picture_path, method: :delete, data: {confirm: "本当によろしいですか？"} %>

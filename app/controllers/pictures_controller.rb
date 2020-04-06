@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 before_action :find_pic, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pic = Picture.all
+    @pics = Picture.all.order("created_at DESC")
   end
   def new
     @pic = Picture.new
@@ -17,6 +17,20 @@ before_action :find_pic, only: [:show, :edit, :update, :destroy]
     end
   end
   def show
+  end
+
+  def update
+    if @pic.update(pic_params)
+      redirect_to @pic, notice: "編集が完了しました"
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    if @pic.destroy
+      redirect_to root_path
+    end
   end
 
   private

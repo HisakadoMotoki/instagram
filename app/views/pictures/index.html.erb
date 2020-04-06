@@ -1,4 +1,6 @@
-<% @pic.each do |pic| %>
+<% @pics.each do |pic| %>
   <h2><%= link_to pic.title, pic %></h2>
 
 <% end %>
+
+<%= link_to "新規作成", new_picture_path %>

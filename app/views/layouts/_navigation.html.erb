@@ -8,6 +8,7 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" href="#">Home</a>
@@ -21,9 +22,20 @@
       <li class="nav-item">
         <a class="nav-link" href="#">profile</a>
       </li>
-      <li class="nav-item">
-        <%= link_to "login", login_path %>
-      </li>
+
     </ul>
+    <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-left">
+        <li><%= link_to "新規作成", new_picture_path %></li>
+        <li><%= link_to "情報変更", edit_user_registration_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    <% else %>
+      <ul class="nav nav-nav navbar-left">
+        <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <li><%= link_to "LogIn", new_user_session_path %></li>
+      </ul>
+    <% end %>
+
   </div>
 </nav>

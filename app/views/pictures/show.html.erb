@@ -1,5 +1,8 @@
 <h1><%= @pic.title %></h1>
 <p><%= @pic.description %></p>
+Pic by
+<p><%= @pic.user.email %></p>
+
 
 <%= link_to "編集", edit_picture_path %>
 <%= link_to "戻る", root_path %>

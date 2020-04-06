@@ -5,11 +5,11 @@ before_action :find_pic, only: [:show, :edit, :update, :destroy]
     @pics = Picture.all.order("created_at DESC")
   end
   def new
-    @pic = Picture.new
+    @pic = current_user.pictures.build
   end
 
   def create
-    @pic = Picture.new(pic_params)
+    @pic = current_user.pictures.build(pic_params)
     if @pic.save
       redirect_to @pic, notice: "投稿されました"
     else
@@ -26,7 +26,7 @@ before_action :find_pic, only: [:show, :edit, :update, :destroy]
       render 'edit'
     end
   end
-  
+
   def destroy
     if @pic.destroy
       redirect_to root_path

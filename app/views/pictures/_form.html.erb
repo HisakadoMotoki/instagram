@@ -1,6 +1,10 @@
 <%= form_for(@pic, html: {class: "field", multipart: true}) do |f| %>
 
   <div class="">
+    <div class="picture">
+      ※5MB以上の写真はアップロードできません<br>
+      <%= f.file_field :image, accept: 'image/jpeg,image/png' %>
+    </div>
     <div class="form-group">
       <%= f.text_field :title, placeholder: "Title" %>
     </div>
@@ -10,3 +14,12 @@
     <%= f.submit "送信" %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('#picture_image').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if(size_in_megabytes > 5){
+      alert('5MB以下の写真をアップロードして下さい')
+    }
+  });
+</script>

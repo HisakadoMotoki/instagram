@@ -1,4 +1,5 @@
 <% @pics.each do |pic| %>
+  <%= image_tag pic.image.url if pic.image? %>
   <h2><%= link_to pic.title, pic %></h2>
 
 <% end %>

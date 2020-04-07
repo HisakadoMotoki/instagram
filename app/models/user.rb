@@ -1,7 +1,9 @@
 class User < ApplicationRecord
   has_many :pictures
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  extend Enumerize
+  enumerize :sex, in: {unkown: -1, male: 0, female: 1, other: 99}, scope: :having_status
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 end

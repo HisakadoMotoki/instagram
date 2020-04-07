@@ -29,6 +29,7 @@ gem 'fog', '1.36.0'
 
 gem 'masonry-rails'
 gem 'acts_as_votable'
+gem 'enumerize'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

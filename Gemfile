@@ -28,9 +28,10 @@ gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.8.0'
 
 
-gem 'masonry-rails'
+#gem 'masonry-rails'
+
+#Likeのアソシエーション
 gem 'acts_as_votable'
-gem 'enumerize'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

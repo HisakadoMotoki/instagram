@@ -1,8 +1,7 @@
 
-<%= link_to "新規作成", new_picture_path %> <br>
-
-<% @pics.each do |pic| %>
-  <%= image_tag(pic.image.url, class:"resize") if pic.image? %>
-  <h2><%= link_to pic.title, pic %></h2>
-
-<% end %>
+<h1>
+  <%= link_to "新規作成", new_picture_path %> <br>
+</h1>
+<div align="center">
+  <%= render 'picture', obj: @pics %>
+</div>

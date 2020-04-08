@@ -8,7 +8,7 @@
 12日までに8割方の実装を完了する
 
 やること
-#User顔写真
+User顔写真
 FBログイン
 Picコメント(user comment 多対多)
 通知
@@ -19,6 +19,10 @@ Picコメント(user comment 多対多)
 bootstrap接続
 スタイリング
 
+アソシエーション
+MーP　一多
+UーP FAV 多多
+UーU FOL 多多
 
 滞納エラー
 ・アップロードファイルサイズオーバー時のアラートが表示されない（ブロックは機能）
@@ -34,3 +38,4 @@ bootstrap接続
 ・ユーザー一覧（user index）
 ・ユーザーステ追加（username/plof/link）(tel/sex)
 ・マイページ（user show）
+・

@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2020_04_07_101232) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
+    t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -32,11 +32,10 @@ ActiveRecord::Schema.define(version: 2020_04_07_101232) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "username"
-    t.text "plofile"
+    t.text "profile"
     t.string "link"
     t.string "tel"
-    t.integer "sex"
-    t.string "image"
+    t.string "sex"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

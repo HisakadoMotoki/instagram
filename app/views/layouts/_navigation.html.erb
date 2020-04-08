@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Instagram</a>
- 
-    </ul>
+  <a class="navbar-brand"><%= link_to "Instagram", root_path %></a>
+ <div align="right">
     <% if user_signed_in? %>
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "新規作成", new_picture_path %></li>
         <li><%= link_to "ユーザー一覧", users_path %></li>
         <li><%= link_to "情報変更", edit_user_registration_path %></li>
+        <li><%= link_to 'プロフィールを充実させる', edit_user_path(current_user) %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% else %>

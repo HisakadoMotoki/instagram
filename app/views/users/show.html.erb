@@ -1,11 +1,16 @@
+<div class="wrapper">
+  <div class="side">
+    <%= link_to 'フォローする', users_path %> |
+    <%= link_to '戻る', users_path %><br>
+    <%= gravatar_for @user %> <br>
+    <%=  "username: #{@user.username}<br>".html_safe if @user.username? %>
+    <%=  "name: #{@user.name}<br>".html_safe if @user.name? %> 
+    <%=  "link: #{@user.link}<br>".html_safe if @user.link? %>
+    <%=  "sex: #{@user.sex}<br>".html_safe if @user.sex?%>
+    <%=  "profile: #{@user.profile}<br>".html_safe if @user.profile? %> <br>
+  </div>
 
-<div class="top" align="center">
-  <%= gravatar_for @user %>
-  <div class="set">
-    <%= @user.username %>
-    <div class="set">
-      <%= link_to 'Edit', edit_user_path(@user) %> |
-      <%= link_to 'Back', users_path %>
-    </div>
+  <div class="main set">
+    <%= render 'pictures/picture', obj: @user.pictures %>
   </div>
 </div>

@@ -1,0 +1,38 @@
+edit
+
+    <%= form_for(@user, :html => {class: "form-horizontal", role:"form"}) do |f| %>
+
+
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "float form-control", placeholder: "user name",autofocus: true %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "float form-control" %>
+
+      <%= f.label :profile %>
+      <%= f.text_area :profile, class: "float form-control" %>
+
+      <%= f.label :link %>
+      <%= f.text_field :link, class: "float form-control" %>
+
+      <%= f.label :tel %>
+      <%= f.text_field :tel, class: "float form-control" %>
+
+      <%= f.label :性別 %>
+      <label><%= f.radio_button :sex, "男  " %> 男  </label>
+      <label><%= f.radio_button :sex, "女  " %> 女  </label>
+      <label><%= f.radio_button :sex, "無回答" %> 無回答  </label> <br>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: "form-control", placeholder:"enter email" %>
+
+
+      <%= f.submit "更新完了" , class:'btn btn-primary btn-lg'%>
+
+    <% end %>
+
+    <div align="center">
+      [<%= link_to "戻る", root_path %>]
+    </div>
+  </div>
+</div>

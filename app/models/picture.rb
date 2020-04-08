@@ -4,8 +4,9 @@ class Picture < ApplicationRecord
   mount_uploader :image, ImageUploader
   validate  :image_size
 
-  private
 
+
+  private
     # アップロードされた画像のサイズをバリデーションする
     def image_size
       if image.size > 5.megabytes

@@ -29,5 +29,24 @@ color: red;
   margin: 10px; 
 }
 .set{
-  
+  vertical-align: middle;
 }
+
+
+.wrapper {
+  overflow: hidden;
+}
+.main {
+  float: right;
+  width: 100%;
+  margin-right: -300px;
+  padding-right: 300px;
+  box-sizing: border-box;
+}
+.side {
+  float: left;
+  width: 300px;
+  position: fixed;
+}
+
+

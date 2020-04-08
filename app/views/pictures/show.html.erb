@@ -2,7 +2,7 @@
 <h1><%= @pic.title %></h1>
 <p><%= @pic.description %></p>
 Pic by
-<p><%= @pic.user.email %></p>
+<p><%= link_to @pic.user.name, user_path(@pic.user) %></p>
 
 <%= link_to like_picture_path(@pic), method: :put, class: "btn btn-default" do %>
 <span class="glyohicon glyohicon-thumbs-up"></span>

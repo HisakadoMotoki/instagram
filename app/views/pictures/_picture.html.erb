@@ -1,0 +1,6 @@
+<% obj.each do |pic| %>
+  <%= image_tag(pic.image.url, class:"resize") if pic.image? %>
+  <h2><%= link_to pic.title, pic %></h2>
+  <h2><%= link_to pic.user_id, pic %></h2>
+  
+<% end %>

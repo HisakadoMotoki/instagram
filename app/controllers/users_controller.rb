@@ -20,6 +20,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
   end
+    
 
   # POST /users
   # POST /users.json
@@ -40,14 +41,11 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.update(user_params)
+      flash[:success] ="your account was updated"
+      redirect_to user_path(@user)
+    else
+      render 'edit'
     end
   end
 
@@ -69,6 +67,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:username, :name, :email, :link, :profile, :sex)
     end
 end

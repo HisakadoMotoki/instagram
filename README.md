@@ -8,14 +8,11 @@
 12日までに8割方の実装を完了する
 
 やること
-#ユーザー一覧（user index）
-#ユーザーステ追加（username/plof/link）(tel/sex)
 #User顔写真
 FBログイン
 Picコメント(user comment 多対多)
 通知
 検索
-#マイページ（user show）
 セキュリティ（authenticate admin）
 お気に入り一覧（like index）
 ユーザーフォロー
@@ -32,5 +29,8 @@ bootstrap接続
 ・Userモデル作成（devise）
 ・User×Picのアソシエイト
 
-4/7
-・画像表示
+4/8
+・画像リサイズ
+・ユーザー一覧（user index）
+・ユーザーステ追加（username/plof/link）(tel/sex)
+・マイページ（user show）

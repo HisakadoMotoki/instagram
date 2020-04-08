@@ -1,3 +1,11 @@
-<%= @user.email %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+
+<div class="top" align="center">
+  <%= gravatar_for @user %>
+  <div class="set">
+    <%= @user.username %>
+    <div class="set">
+      <%= link_to 'Edit', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+    </div>
+  </div>
+</div>

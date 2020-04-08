@@ -23,9 +23,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 
+#画像のアップロード
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.8.0'
-gem 'fog', '1.36.0'
+
 
 gem 'masonry-rails'
 gem 'acts_as_votable'
@@ -60,4 +61,6 @@ group :test do
 end
 group :production do
   gem 'pg'
+  gem 'fog', '1.36.0'
+
 end

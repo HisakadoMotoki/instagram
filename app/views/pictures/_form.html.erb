@@ -1,15 +1,14 @@
-<%= form_for(@pic, html: {class: "field", multipart: true}) do |f| %>
+<%= form_for(@pic) do |f| %>
 
   <div class="">
     <div class="picture">
-      ※5MB以上の写真はアップロードできません<br>
-      <%= f.file_field :image, accept: 'image/jpeg,image/png' %>
+      <%= f.file_field :image %>
     </div>
     <div class="form-group">
       <%= f.text_field :title, placeholder: "Title" %>
     </div>
     <div class="form-group">
-      <%= f.text_field :description, placeholder: "説明" %>
+      <%= f.text_area :description, placeholder: "説明" %>
     </div>
     <%= f.submit "送信" %>
   </div>

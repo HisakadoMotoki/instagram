@@ -1,7 +1,8 @@
+
+<%= link_to "新規作成", new_picture_path %> <br>
+
 <% @pics.each do |pic| %>
-  <%= image_tag pic.image.url if pic.image? %>
+  <%= image_tag(pic.image.url, size:"100*100", class:"img-thumbnail") if pic.image? %>
   <h2><%= link_to pic.title, pic %></h2>
 
 <% end %>
-
-<%= link_to "新規作成", new_picture_path %>

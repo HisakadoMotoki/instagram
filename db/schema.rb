@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2020_04_07_101232) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.string "username"
+    t.string "name", default: "名無しさん"
+    t.string "username", default: "Anonymous"
     t.text "profile"
     t.string "link"
     t.string "tel"

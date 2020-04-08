@@ -10,7 +10,7 @@
     <%=  "profile: #{@user.profile}<br>".html_safe if @user.profile? %> <br>
   </div>
 
-  <div class="main set">
+  <div class="main">
     <%= render 'pictures/picture', obj: @user.pictures %>
   </div>
 </div>

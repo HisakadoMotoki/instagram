@@ -4,11 +4,6 @@
 Pic by
 <p><%= link_to @pic.user.name, user_path(@pic.user) %></p>
 
-<%= link_to like_picture_path(@pic), method: :put, class: "btn btn-default" do %>
-<span class="glyohicon glyohicon-thumbs-up"></span>
-<%= @pic.get_upvotes.size %>
-<% end %>
-
 <%= link_to "戻る", root_path %>
 <% if user_signed_in? %>
 <%= link_to "編集", edit_picture_path %>

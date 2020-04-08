@@ -31,7 +31,7 @@ gem 'mini_magick', '3.8.0'
 #gem 'masonry-rails'
 
 #Likeのアソシエーション
-gem 'acts_as_votable'
+#gem 'acts_as_votable'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

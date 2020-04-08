@@ -1,11 +1,14 @@
 class Picture < ApplicationRecord
-  acts_as_votable
   belongs_to :user
+  has_many :favorites
   mount_uploader :image, ImageUploader
   validates :image, presence: true
   validates :title, presence: true
   validate  :image_size
 
+def favorited_by?(user)
+  favorites.where(user_id: user.id).exists?
+end
 
 
   private

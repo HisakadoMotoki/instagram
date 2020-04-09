@@ -38,18 +38,23 @@ color: red;
 }
 .main {
   float: right;
-  width: 100%;
-  margin-right: -300px;
-  padding-right: 300px;
+  width: 50%;
+  margin-right: 200px;
+  padding-right: 200px;
   box-sizing: border-box;
 }
 .side {
   float: left;
   width: 300px;
-  position: fixed;
+  
   margin: 10px;
 }
-#svg{
-  color: orange;
+.fixed {
+  position: fixed;
 }
-
+.color1{
+  background-color: gray;
+}
+.color2{
+  background-color: blue;
+}

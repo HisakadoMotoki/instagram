@@ -26,7 +26,9 @@ gem 'devise'
 #画像のアップロード
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.8.0'
-
+#スタイリング
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 #gem 'masonry-rails'
 

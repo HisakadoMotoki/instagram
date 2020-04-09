@@ -8,14 +8,13 @@
 12日までに8割方の実装を完了する
 
 やること
-User顔写真
+#User顔写真
 FBログイン
-Picコメント(user comment 多対多)
+#Picコメント(user comment 多対多)
 通知
 検索
-セキュリティ（authenticate admin）
-お気に入り一覧（like index）
-ユーザーフォロー
+#セキュリティ（authenticate admin）
+#ユーザーフォロー
 bootstrap接続
 スタイリング
 
@@ -26,6 +25,8 @@ UーU FOL 多多
 
 滞納エラー
 ・アップロードファイルサイズオーバー時のアラートが表示されない（ブロックは機能）
+・ハートアイコンをリンク対象にしたい
+・FAVーCON ファボすると画面上部に遷移してしまう
 
 4/6
 ・Pictureモデル作成
@@ -38,4 +39,7 @@ UーU FOL 多多
 ・ユーザー一覧（user index）
 ・ユーザーステ追加（username/plof/link）(tel/sex)
 ・マイページ（user show）
-・
+・LIKE実装
+
+4/9
+・お気に入り一覧（like index）実装

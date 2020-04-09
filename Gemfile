@@ -5,8 +5,6 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
-# Use sqlite3 as the database for Active Record
-
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -22,16 +20,13 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-
 #画像のアップロード
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.8.0'
 #スタイリング
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
-
 #gem 'masonry-rails'
-
 #Likeのアソシエーション
 #gem 'acts_as_votable'
 # Use Active Storage variant
@@ -62,8 +57,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
+
 group :production do
   gem 'pg'
   gem 'fog', '1.36.0'
-
 end

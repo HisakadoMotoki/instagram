@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
-
+  
+  root 'pictures#index'
   devise_for :users
-  resources :users
+  get '/login', to: 'sessions#new'
+
+  
   resources :pictures do
     resource :favorites, only: [:create, :destroy]
   end
 
-  root 'pictures#index'
-  get '/login', to: 'sessions#new'
+  resources :users do
+    resource :relationships, only: [:create, :destroy]
+    get :follows, on: :member
+    get :followers, on: :member
+  end
+
+
 end

@@ -7,6 +7,7 @@
         <li><%= link_to "ユーザー一覧", users_path %></li>
         <li><%= link_to "情報変更", edit_user_registration_path %></li>
         <li><%= link_to 'プロフィールを充実させる', edit_user_path(current_user) %></li>
+        <li><%= link_to 'マイページ', user_path(current_user) %></li>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       </ul>
     <% else %>

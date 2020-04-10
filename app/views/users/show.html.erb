@@ -17,6 +17,8 @@
 
           |<%= link_to '戻る', users_path %><br>
           <%= gravatar_for @user %> <br>
+          <%= link_to "フォロー中[#{@user.active_relationships.count}]", follows_user_path %>|
+          <%= link_to "フォロワー[#{@user.passive_relationships.count}]", followers_user_path %> <br>
           <%=  "username: #{@user.username}<br>".html_safe if @user.username? %>
           <%=  "name: #{@user.name}<br>".html_safe if @user.name? %> 
           <%=  "link: #{@user.link}<br>".html_safe if @user.link? %>

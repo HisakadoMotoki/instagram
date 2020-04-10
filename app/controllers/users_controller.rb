@@ -4,8 +4,11 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    @title = "ユーザー一覧"
     @users = User.all
   end
+
+
 
   # GET /users/1
   # GET /users/1.json
@@ -63,13 +66,17 @@ class UsersController < ApplicationController
   end
 
   def follows
+    @title = "Follows"
     user = User.find(params[:id])
     @users = user.followings
+    render 'index_follow'
   end
 
   def followers
+    @title = "Followers"
     user = User.find(params[:id])
     @users = user.followers
+    render 'index_follow'
   end
 
   private

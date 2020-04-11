@@ -1,0 +1,6 @@
+<% comments.each do |comment| %>
+  
+  <%= link_to "#{comment.user.name}: ", user_path(comment.user.id) %>
+  <%= comment.content %>
+  <%= link_to "Delete", picture_comment_path(comment.picture_id, comment.id), method: :delete, remote: true, class: 'btn btn-danger btn-sm' %>　<br> <br>
+<% end %>

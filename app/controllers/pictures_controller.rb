@@ -18,7 +18,10 @@ before_action :correct_user, only: :destroy
       render 'new'
     end
   end
+
   def show
+    @comment = Comment.new
+    @comments = @pic.comments 
   end
 
   def update
@@ -35,10 +38,6 @@ before_action :correct_user, only: :destroy
     end
   end
 
-  def upvote
-    @pic.upvote_by current_user
-    redirect_to picture_path(@pic)
-  end
 
   private
 

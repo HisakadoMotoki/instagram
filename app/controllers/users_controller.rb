@@ -49,6 +49,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] ="your account was updated"
+      #redirect_to root_path
       redirect_to user_path(@user)
     else
       render 'edit'
@@ -87,6 +88,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :name, :email, :link, :profile, :sex)
+      params.require(:user).permit(:username, :name, :email, :link, :profile, :sex, :tel)
     end
 end

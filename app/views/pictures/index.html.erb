@@ -1,4 +1,20 @@
-<%= link_to "新規作成", new_picture_path %>
-<div align="center">
-  <%= render 'picture', obj: @pics %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <% if user_signed_in? && @users %>
+        <%= image_tag(current_user.image.url, class:"resize2") if current_user.image %> <br>
+        <%= current_user.name %> <br>
+        <% @users.each do |user| %>
+          <% if user.image? %>
+            <img src='<%= user.image.url %>' class="resize2" alt="ユーザーアイコン">
+          <% else %>
+            <image src="/assets/default.png" class="resize2" alt="ユーザーアイコン" %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="com-lg">
+      <%= render 'picture', obj: @pics %>
+    </div>
+  </div>
 </div>

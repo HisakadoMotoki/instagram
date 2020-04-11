@@ -8,31 +8,25 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
-
   # GET /users/1
   # GET /users/1.json
   def show
     @pictures = @user.pictures
     @favorite_pictures = @user.favorite_pictures
   end
-
-
   # GET /users/new
   def new
     @user = User.new
   end
-
   # GET /users/1/edit
   def edit
   end
     
-
   # POST /users
   # POST /users.json
   def create
     @user = User.new(user_params)
-
+    @user.image.attach(params[:user][:image])
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -88,6 +82,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:username, :name, :email, :link, :profile, :sex, :tel)
+      params.require(:user).permit(:image, :username, :name, :email, :link, :profile, :sex, :tel)
     end
 end

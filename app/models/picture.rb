@@ -3,6 +3,7 @@ class Picture < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :commenters, through: :commments, source: :user
+  has_many_attached :image
   mount_uploader :image, ImageUploader
   validates :image, presence: true
   validates :title, presence: true

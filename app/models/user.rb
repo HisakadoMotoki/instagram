@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one_attached :image
+  mount_uploader :image, ImageUploader
   has_many :pictures, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -13,7 +15,6 @@ class User < ApplicationRecord
   def followed_by?(user)
     passive_relationships.find_by(following_id: user.id).present?
   end
-
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

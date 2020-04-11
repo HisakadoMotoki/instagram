@@ -7,12 +7,14 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       flash[:success] = "投稿にコメントしました"
+      #投稿時ページトップに遷移してしまう
       #render :index
       redirect_to picture_path(params[:picture_id])
     else
       flash.now[:danger] = '投稿へのコメントに失敗しました。'
-      #comment edit画面への遷移
-      redirect_to picture_path(params[:picture_id])
+      #削除時ページトップに遷移してしまう
+      render :index
+      #redirect_to picture_path(params[:picture_id])
     end
   end
 

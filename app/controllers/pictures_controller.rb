@@ -5,7 +5,7 @@ before_action :correct_user, only: :destroy
 
   def index
     @pics = Picture.all.order("created_at DESC")
-    @users = current_user.followers
+    #@users = current_user.followers
   end
   def new
     @pic = current_user.pictures.build

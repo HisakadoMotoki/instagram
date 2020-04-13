@@ -2,7 +2,12 @@
   <div class="row">
     <div class="col-sm">
       <% if user_signed_in? %>
-        <%= image_tag(current_user.image.url, class:"resize2") if current_user.image.url %> <br>
+        <% if current_user.image? %>
+          <img src='<%= current_user.image.url %>' class="resize2" alt="ユーザーアイコン">
+        <% else %>
+          <image src="/assets/default.png" class="resize2" alt="ユーザーアイコン" %>
+        <% end %>
+         <br>
         <%= current_user.name %> <br>
         <% current_user.followers.each do |user| %>
           <% if user.image? %>

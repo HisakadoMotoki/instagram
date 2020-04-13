@@ -9,6 +9,9 @@ class CommentsController < ApplicationController
       flash[:success] = "投稿にコメントしました"
       #投稿時ページトップに遷移してしまう
       #render :index
+      #通知
+      @picture = Picture.find(params[:picture_id])
+      @picture.create_notification_comment!(current_user)
       redirect_to picture_path(params[:picture_id])
     else
       flash.now[:danger] = '投稿へのコメントに失敗しました。'

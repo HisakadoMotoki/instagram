@@ -9,11 +9,31 @@ class Picture < ApplicationRecord
   validates :title, presence: true
   validate  :image_size
 
-def favorited_by?(user)
-  favorites.where(user_id: user.id).exists?
-end
+  has_many :notifications, dependent: :destroy
 
+  def create_notification_favorite!(current_user)
+    notification = current_user.active_notifications.new(
+      picture_id:self.id,
+      visited_id:self.user.id,
+      action:"favorite"
+    )
+    notification.save if notification.valid?
+  end
 
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
+
+  def create_notification_comment!(current_user)
+    notification = current_user.active_notifications.new(
+      picture_id:self.id,
+     # comment_id: comment_id,
+      visited_id:self.user.id,
+      action: "comment"
+    )
+    notification.save if notification.valid?
+  end
+  
   private
     # アップロードされた画像のサイズをバリデーションする
     def image_size

@@ -13,7 +13,7 @@ before_action :correct_user, only: :destroy
 
   def create
     @pic = current_user.pictures.build(pic_params)
-    @pic.image.attach(params[:picture][:image])
+    #@pic.image.attach(params[:picture][:image])
     if @pic.save
       redirect_to @pic, notice: "投稿されました"
     else

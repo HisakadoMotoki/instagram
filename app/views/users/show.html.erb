@@ -6,7 +6,12 @@
           <div class="fixed">
             <%= render 'relationships/follow' %>|<%#フォローbtn%>
             <%= link_to '戻る', users_path %><br>
-            <%= image_tag(@user.image.url, class:"resize2") if @user.image? %> <br>
+            <% if @user.image? %>
+              <img src='<%= @user.image.url %>' class="resize2" alt="ユーザーアイコン">
+            <% else %>
+              <image src="/assets/default.png" class="resize2" alt="ユーザーアイコン" %>
+            <% end %>
+            <br>
             <%= link_to "フォロー中[#{@user.active_relationships.count}]", follows_user_path %>|
             <%= link_to "フォロワー[#{@user.passive_relationships.count}]", followers_user_path %> <br>
             <%=  "username: #{@user.username}<br>".html_safe if @user.username? %>
@@ -14,7 +19,9 @@
             <%=  "link: #{@user.link}<br>".html_safe if @user.link? %>
             <%=  "sex: #{@user.sex}<br>".html_safe if @user.sex?%>
             <%=  "profile: #{@user.profile}<br>".html_safe if @user.profile? %> <br>
+            <%#= render 'pictures/form' %>
         </div>
+
       </div>
       <div class="col-sm color1">
           <div class="">

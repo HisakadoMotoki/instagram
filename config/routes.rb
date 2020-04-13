@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   devise_for :users
   get '/login', to: 'sessions#new'
 #  get '/users/:id/follower', to: 'users#follower'
-  
+  resources :notifications, only: :index
+
   resources :pictures do
     resource :favorites, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]

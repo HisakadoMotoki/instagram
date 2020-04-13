@@ -3,6 +3,10 @@ before_action :find_pic, only: [:show, :edit, :update, :destroy, :upvote]
 before_action :authenticate_user!, except: [:index, :show]
 before_action :correct_user, only: :destroy
 
+  def search
+    @pics = Picture.search(params[:search])
+  end
+
   def index
     @pics = Picture.all.order("created_at DESC")
     #@users = current_user.followers

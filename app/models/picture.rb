@@ -11,6 +11,11 @@ class Picture < ApplicationRecord
 
   has_many :notifications, dependent: :destroy
 
+  def self.search(search)
+    return Picture.all unless search
+    Picture.where(['title LIKE ?', "%#{search}"])
+  end
+
   def create_notification_favorite!(current_user)
     notification = current_user.active_notifications.new(
       picture_id:self.id,

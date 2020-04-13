@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm">
+      <%= link_to "search", search_path %>
       <% if user_signed_in? %>
         <% if current_user.image? %>
           <img src='<%= current_user.image.url %>' class="resize2" alt="ユーザーアイコン">

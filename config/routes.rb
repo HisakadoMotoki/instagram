@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'pictures#index'
   devise_for :users
   get '/login', to: 'sessions#new'
+  get '/search', to: 'pictures#search'
 #  get '/users/:id/follower', to: 'users#follower'
   resources :notifications, only: :index
 

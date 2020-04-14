@@ -15,6 +15,9 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :omniauthable
+
   def create_notification_follow!(current_user)
     notification = current_user.active_notifications.new(
       visited_id: self.id,
@@ -27,6 +30,18 @@ class User < ApplicationRecord
     passive_relationships.find_by(following_id: user.id).present?
   end
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+    def self.find_for_oauth(auth)
+    user = User.where(uid: auth.uid, provider: auth.provider).first
+    unless user
+      user = User.create(
+        uid:      auth.uid,
+        provider: auth.provider,
+        email:    auth.info.email,
+        name:  auth.info.name,
+        password: Devise.friendly_token[0, 20],
+        image:  auth.info.image
+      )
+    end
+    user
+  end
 end

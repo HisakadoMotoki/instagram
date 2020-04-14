@@ -4,6 +4,9 @@ before_action :authenticate_user!, except: [:index, :show]
 before_action :correct_user, only: :destroy
 
   def search
+    if user_signed_in?
+      @pic_new = current_user.pictures.build
+    end
     @pics = Picture.search(params[:search])
   end
 

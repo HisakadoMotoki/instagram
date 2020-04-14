@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   get 'comments/create'
   get 'comments/destroy'
   root 'pictures#index'
-  devise_for :users
   get '/login', to: 'sessions#new'
   get '/search', to: 'pictures#search'
 #  get '/users/:id/follower', to: 'users#follower'

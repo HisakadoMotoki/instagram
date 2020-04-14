@@ -1,7 +1,8 @@
-<%= form_for(@pic) do |f| %>
+<h5>投稿する</h5>
+<%= form_for(@pic_new) do |f| %>
 
   <div class="">
-    <div class="picture">
+    <div class="form-group">
       <%= f.file_field :image %>
     </div>
     <div class="form-group">

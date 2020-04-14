@@ -1,38 +1,14 @@
-<i color="red" class="far fa-heart"></i>
-<div class="">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-          <div class="fixed">
-            <%= render 'relationships/follow' %>|<%#フォローbtn%>
-            <%= link_to '戻る', users_path %><br>
-            <% if @user.image? %>
-              <img src='<%= @user.image.url %>' class="resize2" alt="ユーザーアイコン">
-            <% else %>
-              <image src="/assets/default.png" class="resize2" alt="ユーザーアイコン" %>
-            <% end %>
-            <br>
-            <%= link_to "フォロー中[#{@user.active_relationships.count}]", follows_user_path %>|
-            <%= link_to "フォロワー[#{@user.passive_relationships.count}]", followers_user_path %> <br>
-            <%=  "username: #{@user.username}<br>".html_safe if @user.username? %>
-            <%=  "name: #{@user.name}<br>".html_safe if @user.name? %> 
-            <%=  "link: #{@user.link}<br>".html_safe if @user.link? %>
-            <%=  "sex: #{@user.sex}<br>".html_safe if @user.sex?%>
-            <%=  "profile: #{@user.profile}<br>".html_safe if @user.profile? %> <br>
-            <%#= render 'pictures/form' %>
-        </div>
-
+<div class="container">
+  <div class="row">
+    <div class="col-4 color1">
+      <div class="fixed">
+        <%= link_to '投稿', user_path %>|
+        <%= link_to 'お気に入り', favorites_user_path %>
+        <%= render 'users/profile' %>
       </div>
-      <div class="col-sm color1">
-          <div class="">
-            <%= render 'pictures/picture', obj: @user.pictures %>
-          </div>
-      </div>
-      <div class="col-sm color2">
-          <div class="">
-            <%= render 'pictures/fav_picture', obj: @favorite_pictures %>
-          </div>
-      </div>
+    </div>
+    <div class="col-8 color2">
+      <%= render 'pictures/picture', obj: @pictures %>
     </div>
   </div>
 </div>

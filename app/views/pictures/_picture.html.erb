@@ -1,9 +1,4 @@
 <% obj.each do |pic| %>
-  <%= image_tag(pic.image.url, class:"resize") if pic.image? %>
-
-  <h2><%= link_to pic.title, pic %></h2>
-  <h2><%= link_to pic.user_id, pic %></h2>
-  <%#= render '/favorites/favorite', obj: pic %>   
-  
-
+  <%= link_to image_tag(pic.image.url, class:"resize"), pic %>
+  <h2><%= link_to "Title: #{pic.title}", pic %></h2>
 <% end %>

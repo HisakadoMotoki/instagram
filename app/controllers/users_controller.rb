@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :favorites, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -14,6 +14,12 @@ class UsersController < ApplicationController
   def show
     @pictures = @user.pictures
     @favorite_pictures = @user.favorite_pictures
+  end
+
+  def favorites
+    @favorite_pictures = @user.favorite_pictures
+    @pictures = @user.favorite_pictures
+    render 'users/show'
   end
   # GET /users/new
   def new

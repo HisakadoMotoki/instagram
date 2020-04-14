@@ -1,26 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm">
-      <%= link_to "search", search_path %>
-      <% if user_signed_in? %>
-        <% if current_user.image? %>
-          <img src='<%= current_user.image.url %>' class="resize2" alt="ユーザーアイコン">
-        <% else %>
-          <image src="/assets/default.png" class="resize2" alt="ユーザーアイコン" %>
-        <% end %>
-         <br>
-        <%= current_user.name %> <br>
-        <% current_user.followers.each do |user| %>
-          <% if user.image? %>
-            <img src='<%= user.image.url %>' class="resize2" alt="ユーザーアイコン">
-          <% else %>
-            <image src="/assets/default.png" class="resize2" alt="ユーザーアイコン" %>
+    <div class="col-4 color1">
+      <div class="fixed">
+        <% if user_signed_in? %>
+          <h1><%= render 'users/user_image', obj: current_user %><br>
+          <%= current_user.name %></h1><br>
+          <% current_user.followers.each do |user| %>
+            <%= render 'users/user_image', obj: user %>
           <% end %>
+          <div class="color2 form">
+            <%= render 'pictures/form'%>
+          </div>
+        <% else %>
+          <%#= render 'users/sign_in' %><!-- ログインフォーム -->
         <% end %>
-      <% end %>
+      </div>
     </div>
-    <div class="com-lg">
-      <%= render 'picture', obj: @pics %>
+    <div class="col-8 color2 main">
+      <div class="">
+        <%= render 'picture', obj: @pics %>
+      </div>
     </div>
   </div>
 </div>

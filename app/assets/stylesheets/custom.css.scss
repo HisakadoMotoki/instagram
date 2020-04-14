@@ -8,7 +8,10 @@ background-color: gray !important;
 font-size: 3rem;
 }
 h1 {
-color: red;
+text-align: center;
+}
+h5{
+  color:white;
 }
 .resize{
   height:400px;
@@ -17,6 +20,10 @@ color: red;
 .resize2{
   height:100px;
   width:100px;
+}
+.resize3{
+  height:50px;
+  width:50px;
 }
 
 /*
@@ -41,17 +48,13 @@ color: red;
   overflow: hidden;
 }
 .main {
-  float: right;
-  width: 50%;
-  margin-right: 200px;
-  padding-right: 200px;
-  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
 }
 .side {
-  float: left;
-  width: 300px;
-  
-  margin: 10px;
+  margin: 0 auto;
+  padding:10px;
+  text-align: center;
 }
 .fixed {
   position: fixed;
@@ -61,4 +64,7 @@ color: red;
 }
 .color2{
   background-color: blue;
+}
+.form{
+  padding: 20px;
 }

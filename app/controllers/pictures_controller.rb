@@ -8,20 +8,23 @@ before_action :correct_user, only: :destroy
   end
 
   def index
+    if user_signed_in?
+      @pic_new = current_user.pictures.build
+    end
     @pics = Picture.all.order("created_at DESC")
     #@users = current_user.followers
   end
-  def new
-    @pic = current_user.pictures.build
-  end
+  #def new
+  #  @pic = current_user.pictures.build
+  #end
 
   def create
-    @pic = current_user.pictures.build(pic_params)
+    @pic_new = current_user.pictures.build(pic_params)
     #@pic.image.attach(params[:picture][:image])
-    if @pic.save
-      redirect_to @pic, notice: "投稿されました"
+    if @pic_new.save
+      redirect_to @pic_new, notice: "投稿されました"
     else
-      render 'new'
+      render 'index'
     end
   end
 

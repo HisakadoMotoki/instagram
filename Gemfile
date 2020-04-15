@@ -31,6 +31,9 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 #APIキーの非公開
 gem 'dotenv-rails'
+#font
+gem 'font-awesome-rails'
+
 #gem 'masonry-rails'
 #Likeのアソシエーション
 #gem 'acts_as_votable'

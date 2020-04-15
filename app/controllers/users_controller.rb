@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :favorites, :edit, :update, :destroy]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+  before_action :require_admin, only: [:destroy]
 
   # GET /users
   # GET /users.json
@@ -91,5 +93,18 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:image, :username, :name, :email, :link, :profile, :sex, :tel)
+    end
+
+    def require_same_user
+      if current_user != @user and !current_user.admin?
+        flash[:dander] = "他人のアカウントに茶々入れたらダメだよ"
+        redirect_to root_path
+      end
+    end
+    def require_admin
+      if logged_in? and !current_user.admin?
+        flash[:dander] = "管理者しかできないアクションだよ"
+        redirect_to root_path
+      end
     end
 end

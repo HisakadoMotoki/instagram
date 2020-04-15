@@ -2,17 +2,19 @@ class PicturesController < ApplicationController
 before_action :find_pic, only: [:show, :edit, :update, :destroy, :upvote]
 before_action :authenticate_user!, except: [:index, :show]
 before_action :correct_user, only: :destroy
+before_action :require_same_user, only: [:edit, :update, :destroy]
+before_action :require_admin, only: [:destroy]
 
   def search
     if user_signed_in?
-      @pic_new = current_user.pictures.build
+      @pic = current_user.pictures.build
     end
     @pics = Picture.search(params[:search])
   end
 
   def index
     if user_signed_in?
-      @pic_new = current_user.pictures.build
+      @pic = current_user.pictures.build
     end
     @pics = Picture.all.order("created_at DESC")
     #@users = current_user.followers
@@ -65,6 +67,19 @@ before_action :correct_user, only: :destroy
     @pic = current_user.pictures.find_by(id: params[:id])
     redirect_to root_url if @pic.nil?
   end
+
+    def require_same_user
+      if current_user != @user and !current_user.admin?
+        flash[:dander] = "他人の投稿に茶々入れたらダメだよ"
+        redirect_to root_path
+      end
+    end
+    def require_admin
+      if logged_in? and !current_user.admin?
+        flash[:dander] = "管理者しかできないアクションだよ"
+        redirect_to root_path
+      end
+    end
 
 
 end

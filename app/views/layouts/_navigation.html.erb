@@ -1,23 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar ">
   <h1><a class="navbar-brand"><%= link_to "Instagram", root_path %></a></h1>
  <div align="right">
     <% if user_signed_in? %>
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "search", search_path %></li>
-        <li><%= link_to "ユーザー一覧", users_path %></li>
-        <li><%= link_to "情報変更", edit_user_registration_path %></li>
-        <li><%= link_to 'プロフィールを充実させる', edit_user_path(current_user) %></li>
-        <li><%= link_to 'マイページ', user_path(current_user) %></li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <li class="notification"><%= link_to '通知', notifications_path, class:"btn"  %>
-          <% if unchecked_notifications.any? %>
-            <i class="fa fa-circle notification-circle"></i>
-          <% end %></li>
-      </ul>
-    <% else %>
-      <ul class="nav nav-nav navbar-left">
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "LogIn", new_user_session_path %></li>
+      <ul class="">
+        <li><%= link_to search_path do %>
+          <i class="fa fa-search fa-2x"></i>  
+        <% end %></li>
+        <li><%= link_to users_path do %>
+          <i class="fa fa-users fa-2x"></i></i>  
+        <% end %></li>
+        <li><%= link_to user_path(current_user) do %>
+          <i class="fa fa-user fa-2x" ></i>  
+        <% end %></li>
+        <li><%= link_to notifications_path do %>
+          <i class="fa fa-bell-o fa-2x"></i>
+        <% end %></li>
+        <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
       </ul>
     <% end %>
 

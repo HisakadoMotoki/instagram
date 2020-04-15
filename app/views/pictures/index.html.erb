@@ -3,13 +3,11 @@
     <div class="col-4 color1 side">
       <div class="">
         <% if user_signed_in? %>
-          <h1><%= render 'users/user_image', obj: current_user %><br>
-          <%= current_user.name %></h1><br>
+          <%= render 'users/user_image', obj: current_user %><br>
+          <%= current_user.name %><br>
           <div class="index">
             <% current_user.followings.each do |user| %>
-            <ul>
-              <li><%= render 'users/user_image', obj: user %></li>
-            </ul>
+              <ul><li><%= render 'users/user_image', obj: user %></li></ul>
             <% end %>
           </div>
           <div class="color2 form">
@@ -18,16 +16,14 @@
         <% else %>
            <div class="fixed">
              <button type="button" class="btn btn-outline-primary"><%= link_to "新規登録", new_user_registration_path %></button>
-              <button type="button" class="btn btn-outline-primary"><%= link_to "LogIn", new_user_session_path %></button>
-              <button type="button" class="btn btn-outline-primary"><%= link_to "FBからログイン", user_facebook_omniauth_callback_path %></button>
+             <button type="button" class="btn btn-outline-primary"><%= link_to "LogIn", new_user_session_path %></button>
+             <button type="button" class="btn btn-outline-primary"><%= link_to "FBからログイン", user_facebook_omniauth_callback_path %></button>
           </div>
         <% end %>
       </div>
     </div>
     <div class="col-8 color2 main">
-      <div class="">
-        <%= render 'picture', obj: @pics %>
-      </div>
+      <%= render 'picture', obj: @pics %>
     </div>
   </div>
 </div>

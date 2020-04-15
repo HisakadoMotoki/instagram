@@ -26,6 +26,10 @@ class User < ApplicationRecord
     notification.save if notification.valid?
   end
 
+  def followed_by?(user)
+    passive_relationships.find_by(following_id: user.id).present?
+  end
+
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
 

@@ -1,13 +1,17 @@
 <div class="container">
   <div class="row">
-    <div class="col-4 color1">
-      <div class="fixed">
+    <div class="col-4 color1 side">
+      <div class="">
         <% if user_signed_in? %>
           <h1><%= render 'users/user_image', obj: current_user %><br>
           <%= current_user.name %></h1><br>
-          <% current_user.followers.each do |user| %>
-            <%= render 'users/user_image', obj: user %>
-          <% end %>
+          <div class="index">
+            <% current_user.followings.each do |user| %>
+            <ul>
+              <li><%= render 'users/user_image', obj: user %></li>
+            </ul>
+            <% end %>
+          </div>
           <div class="color2 form">
             <%= render 'pictures/form'%>
           </div>

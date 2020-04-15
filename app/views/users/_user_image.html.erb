@@ -1,5 +1,5 @@
   <% if obj.image? %>
-    <img src='<%= obj.image.url %>' class='resize2'>
+    <%= link_to image_tag(obj.image.url, class:"resize2"), obj %>
   <% else %>
-    <image src="/assets/default.png" class='resize2'%>
+    <%= link_to image_tag("/assets/default.png", class:"resize2"), obj %>
   <% end %>

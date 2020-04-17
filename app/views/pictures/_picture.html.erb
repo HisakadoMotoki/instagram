@@ -1,7 +1,4 @@
-<% obj.each do |user| %>
-  <% pics = Picture.where(user_id: user.id) %>
-  <% pics.each do |pic| %>
-    <%= link_to image_tag(pic.image.url, class:"resize"), pic %>
-    <h2><%= link_to "Title: #{pic.title}", pic %></h2>
-  <% end %>
+<% obj.each do |pic| %>
+  <%= link_to image_tag(pic.image.url, class:"resize"), pic %>
+  <h2><%= link_to "Title: #{pic.title}", pic %></h2>
 <% end %>

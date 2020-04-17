@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     @pictures = @user.pictures
     @favorite_pictures = @user.favorite_pictures
   end
-
   def favorites
     @favorite_pictures = @user.favorite_pictures
     @pictures = @user.favorite_pictures

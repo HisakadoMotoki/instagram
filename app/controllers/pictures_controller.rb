@@ -15,9 +15,11 @@ before_action :require_admin, only: [:destroy]
   def index
     if user_signed_in?
       @pic = current_user.pictures.build
+      @users = current_user.followings
+    else
+      @users = User.all
     end
-    @pics = Picture.all.order("created_at DESC")
-    #@users = current_user.followers
+    
   end
   #def new
   #  @pic = current_user.pictures.build

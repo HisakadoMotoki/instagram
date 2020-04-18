@@ -1,6 +1,12 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 
+a:link { color: #0000ff; }
+a:visited { color: #000080; }
+a:hover { color: #ff0000; }
+a:active { color: #ff8000; }
+
+
 .navbar {
 background-color: gray !important;
 }
@@ -65,7 +71,7 @@ li{
   background-color: gray;
 }
 .color2{
-  background-color: blue;
+  background-color: #f0f8ff;
 }
 .form{
   padding:10 px;

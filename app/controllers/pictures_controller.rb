@@ -15,15 +15,11 @@ before_action :require_admin, only: [:destroy]
   def index
     if user_signed_in?
       @pic = current_user.pictures.build
-      @users = current_user.followings
+      @users = current_user && current_user.followings
     else
       @users = User.all
     end
-    
   end
-  #def new
-  #  @pic = current_user.pictures.build
-  #end
 
   def create
     @pic_new = current_user.pictures.build(pic_params)

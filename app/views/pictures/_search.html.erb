@@ -1,14 +1,13 @@
-<p>絞り込み</p>
 <%= form_tag(search_path, :method =>'get') do %>
   <%= text_field_tag :search %>
   <%= submit_tag 'Search', :title => nil %>
 <% end %>
-
-<ul><% @pics.each do |pic| %>
-  <li>
-    <%= link_to "Title: #{pic.title}", pic %> <br>
-    <%= link_to image_tag(pic.image.url, class:"resize"), pic %> <br>
-    <%= pic.created_at %>
-  </li>
+<ul>
+  <% @pics.each do |pic| %>
+    <li>
+      <%= link_to "Title: #{pic.title}", pic %> <br>
+      <%= link_to image_tag(pic.image.url, class:"resize"), pic %> <br>
+      <%= pic.created_at %>
+    </li>
   <% end %>
 </ul>

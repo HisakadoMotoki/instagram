@@ -1,3 +1,4 @@
+<% provide(:title, @pic.title)%>
 <div class="main">
   <%= image_tag @pic.image.url if @pic.image? %>
   <h1><%= @pic.title %></h1>

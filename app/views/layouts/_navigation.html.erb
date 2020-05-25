@@ -1,24 +1,22 @@
 <nav class="navbar ">
   <h1><a class="navbar-brand"><%= link_to "Instagram", root_path %></a></h1>
- <div align="right">
+  <div align="right">
     <% if user_signed_in? %>
-      <ul class="">
-        <li><%= link_to search_path do %>
+      <ul>
+        <li class="icons"><%= link_to search_path do %>
           <i class="fa fa-search fa-2x"></i>  
         <% end %></li>
-        <li><%= link_to users_path do %>
+        <li class="icons"><%= link_to users_path do %>
           <i class="fa fa-users fa-2x"></i></i>  
         <% end %></li>
-        <li><%= link_to user_path(current_user) do %>
+        <li class="icons"><%= link_to user_path(current_user) do %>
           <i class="fa fa-user fa-2x" ></i>  
         <% end %></li>
-        <li><%= link_to notifications_path do %>
+        <li class="icons"><%= link_to notifications_path do %>
           <i class="fa fa-bell-o fa-2x"></i>
         <% end %></li>
-        <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
       </ul>
+      <%= link_to "サインアウト", destroy_user_session_path, method: :delete %>
     <% end %>
-
-
   </div>
 </nav>

@@ -1,14 +1,14 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 
-a:link { color: #0000ff; }
-a:visited { color: #000080; }
-a:hover { color: #ff0000; }
+a:link { color: #f0f0f5; }
+a:visited { color: #f0f0f7; }
+a:hover { color: #3700ff; }
 a:active { color: #ff8000; }
 
 
 .navbar {
-background-color: gray !important;
+background-color: #13b1c0;
 }
 .navbar-brand {
 font-size: 3rem;
@@ -38,21 +38,17 @@ h5{
   width:380px;
   height: auto;
 }
-
 li{
   margin: 3px;
   float: left;
   list-style: none;
 }
-
 .top{
   margin: 10px; 
 }
 .set{
   vertical-align: middle;
 }
-
-
 .wrapper {
   overflow: hidden;
 }
@@ -67,13 +63,16 @@ li{
 .fixed {
   position: fixed;
 }
-.color1{
-  background-color: gray;
+.color1 {
+  background-color: #13b1c0;
 }
-.color2{
+.color2 {
   background-color: #f0f8ff;
 }
-.form{
+.form {
   padding:10 px;
   float: left
+}
+.icons {
+  padding:10px;
 }

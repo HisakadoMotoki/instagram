@@ -33,13 +33,8 @@ gem 'omniauth-facebook'
 gem 'dotenv-rails'
 #font
 gem 'font-awesome-rails'
-
-#gem 'masonry-rails'
-#Likeのアソシエーション
-#gem 'acts_as_votable'
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
-
+#N+1問題検知
+gem 'bullet'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

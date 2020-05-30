@@ -3,16 +3,12 @@ class UsersController < ApplicationController
   before_action :require_same_user, only: [:edit, :update, :destroy]
   before_action :require_admin, only: [:destroy]
 
-  # GET /users
-  # GET /users.json
   def index
     @title = "ユーザー一覧"
     @users = User.all
     @pic = current_user.pictures.build
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @pictures = @user.pictures
     @favorite_pictures = @user.favorite_pictures
@@ -22,16 +18,14 @@ class UsersController < ApplicationController
     @pictures = @user.favorite_pictures
     render 'users/show'
   end
-  # GET /users/new
+
   def new
     @user = User.new
   end
-  # GET /users/1/edit
+
   def edit
   end
     
-  # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
     @user.image.attach(params[:user][:image])
@@ -47,20 +41,15 @@ class UsersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
       flash[:success] ="your account was updated"
-      #redirect_to root_path
       redirect_to user_path(@user)
     else
       render 'edit'
     end
   end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -84,12 +73,10 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:image, :username, :name, :email, :link, :profile, :sex, :tel)
     end
@@ -100,6 +87,7 @@ class UsersController < ApplicationController
         redirect_to root_path
       end
     end
+
     def require_admin
       if logged_in? and !current_user.admin?
         flash[:dander] = "管理者しかできないアクションだよ"

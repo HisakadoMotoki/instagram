@@ -23,7 +23,6 @@ before_action :require_admin, only: [:destroy]
 
   def create
     @pic_new = current_user.pictures.build(pic_params)
-    #@pic.image.attach(params[:picture][:image])
     if @pic_new.save
       redirect_to @pic_new, notice: "投稿されました"
     else
@@ -50,9 +49,7 @@ before_action :require_admin, only: [:destroy]
     end
   end
 
-
   private
-
   def pic_params
     params.require(:picture).permit(:title, :description, :image)
   end
@@ -66,18 +63,16 @@ before_action :require_admin, only: [:destroy]
     redirect_to root_url if @pic.nil?
   end
 
-    def require_same_user
-      if current_user != @user and !current_user.admin?
-        flash[:dander] = "他人の投稿に茶々入れたらダメだよ"
-        redirect_to root_path
-      end
+  def require_same_user
+    if current_user != @user and !current_user.admin?
+      flash[:dander] = "他人の投稿に茶々入れたらダメだよ"
+      redirect_to root_path
     end
-    def require_admin
-      if logged_in? and !current_user.admin?
-        flash[:dander] = "管理者しかできないアクションだよ"
-        redirect_to root_path
-      end
+  end
+  def require_admin
+    if logged_in? and !current_user.admin?
+      flash[:dander] = "管理者しかできないアクションだよ"
+      redirect_to root_path
     end
-
-
+  end
 end

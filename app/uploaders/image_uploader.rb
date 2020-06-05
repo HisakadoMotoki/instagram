@@ -1,12 +1,11 @@
-# encoding: utf-8
+# frozen_string_literal: true
 
 class ImageUploader < CarrierWave::Uploader::Base
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  #require "mini_magick"
-  #process resize_to_limit: [400, 400]
+  # require "mini_magick"
+  # process resize_to_limit: [400, 400]
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -18,11 +17,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extention_white_list
-    %w(jpeg png)
+    %w[jpeg png]
   end
 
-  def default_url(*args)
-    "default.png"
+  def default_url(*_args)
+    'default.png'
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
@@ -55,5 +54,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end

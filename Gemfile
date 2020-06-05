@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 # 画像のアップロード
 gem 'carrierwave', '0.10.0'
-gem 'mini_magick', '3.8.0'
+gem 'mini_magick', '4.9.4'
 # スタイリング
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'

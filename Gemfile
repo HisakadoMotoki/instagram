@@ -65,5 +65,4 @@ end
 
 group :production do
   gem 'fog', '1.36.0'
-  gem 'pg'
 end

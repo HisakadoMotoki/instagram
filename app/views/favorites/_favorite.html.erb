@@ -1,0 +1,9 @@
+<% if user_signed_in? %>
+    <% if pic.favorited_by?(current_user) %> <!-- ログインしているユーザーがファボしたかどうかで分岐 -->
+        <p><span>お気に入り解除: </span><%=link_to pic.favorites.count, pic_favorites_path(picture.id), method: :delete %></p>
+    <% else %>
+        <p><span>お気に入り登録: </span><%=link_to pic.favorites.count, pic_favorites_path(pic.id), method: :post %></p>
+    <% end %>
+<% else %>
+    <p><span>お気に入り数: </span><%= picture.favorites.count %></p>
+<% end %>

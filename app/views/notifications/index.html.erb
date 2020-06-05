@@ -1,0 +1,10 @@
+<div class="color2">
+  <h4 class="sub-title">通知</h4>
+  <% if @notifications.exists? %>
+    <div class="users-index">
+      <h4><%= render @notifications %></h4>
+    </div>
+  <% else %>
+    <p>通知はありません</p>
+  <% end %>
+</div>

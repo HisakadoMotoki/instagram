@@ -1,0 +1,20 @@
+<% provide(:title, "検索")%>
+<div class="container">
+  <div class="row">
+    <div class="col-4 color1 side">
+      <h1><%= render 'users/user_image', obj: current_user %><br>
+      <%= current_user.name %></h1><br>
+      <div class="index">
+        <% current_user.followings.each do |user| %>
+          <%= render 'users/user_image', obj: user %>
+        <% end %>
+      </div>
+      <div class="color2 form">
+        <%= render 'pictures/form'%>
+      </div>
+    </div>
+    <div class="col-8 color2 main">
+      <%= render 'pictures/search', obj: @pics %>
+    </div>
+  </div>
+</div>

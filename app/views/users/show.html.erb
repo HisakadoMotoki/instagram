@@ -1,0 +1,13 @@
+<% provide(:title, @user.name)%>
+<div class="container">
+  <div class="row">
+    <div class="col-4 color1">
+      <div class="fixed">
+        <%= render 'users/profile' %>
+      </div>
+    </div>
+    <div class="col-8 color2 main">
+      <%= render 'pictures/picture', obj: @pictures %>
+    </div>
+  </div>
+</div>

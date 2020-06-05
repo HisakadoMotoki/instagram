@@ -1,0 +1,7 @@
+<%= form_with(model: [pic, comment]) do |f| %>
+  <%= f.text_area :content, class: 'form-control' %>
+  <%= f.submit 'Comment', class: 'btn btn-primary btn-block' %>
+<% end %>
+
+
+

@@ -1,0 +1,90 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+
+a:link { color: #f0f0f5; }
+a:visited { color: #f0f0f7; }
+a:hover { color: #3700ff; }
+a:active { color: #ff8000; }
+
+
+
+.navbar {
+background-color: #13b1c0;
+}
+.navbar-brand {
+font-size: 3rem;
+}
+.footer {
+    width: 100%;
+    background-color: #13b1c0;
+    color: #fff;
+    text-align: center;
+    padding: 30px 0;
+    bottom: auto;
+}
+h1 {
+text-align: center;
+}
+h2{
+  color: black;
+}
+h5{
+  color:white;
+}
+.resize{
+  height:400px;
+  width:400px;
+}
+.resize2{
+  height:100px;
+  width:100px;
+}
+.resize3{
+  height:50px;
+  width:50px;
+}
+.index{
+  width:380px;
+  height: auto;
+}
+li{
+  margin: 3px;
+  float: left;
+  list-style: none;
+}
+.top{
+  margin: 10px; 
+}
+.set{
+  vertical-align: middle;
+}
+.wrapper {
+  overflow: hidden;
+}
+.main {
+  margin: 0 auto;
+  text-align: center;
+}
+.side {
+  margin: 0 auto;
+  padding:10px;
+}
+.fixed {
+  position: fixed;
+}
+.color1 {
+  background-color: #13b1c0;
+}
+.color2 {
+  background-color: #60c8f1;
+}
+.form {
+  padding:10 px;
+  float: left
+}
+.icons {
+  padding:10px;
+}
+.top-picture{
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+<%= render 'users/user_image', obj: @user %><br>
+<%= render 'relationships/follow'%> <br>
+<% if user_signed_in? && current_user == @user %>
+  <%= link_to "プロフィールを充実させる",edit_user_path(current_user) %>
+  <%= link_to "情報変更", edit_user_registration_path %> <br>
+<% end %>
+<%= link_to "フォロー中[#{@user.active_relationships.count}]", follows_user_path %>|
+<%= link_to "フォロワー[#{@user.passive_relationships.count}]", followers_user_path %> <br>
+<%= link_to "本人の投稿[#{@user.pictures.count}]", user_path %>|
+<%= link_to "お気に入りした投稿[#{@user.favorite_pictures.count}]", favorites_user_path %><br>
+<%=  "username: #{@user.username}<br>".html_safe if @user.username? %>
+<%=  "name: #{@user.name}<br>".html_safe if @user.name? %> 
+<%=  "link: #{@user.link}<br>".html_safe if @user.link? %>
+<%=  "性別: #{@user.sex}<br>".html_safe if @user.sex?%>
+<%=  "profile: #{@user.profile}<br>".html_safe if @user.profile? %> <br>

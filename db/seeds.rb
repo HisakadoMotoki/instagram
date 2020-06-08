@@ -9,7 +9,7 @@
 user = User.new(password:"passward", email: "sagamihara717771@gmail.com", name: "hisakadomotoki", username: "ktd", profile: "hello!immotoki", link: "httpl;;feffef.com", tel: "09011111111", sex: 1)
 
   Picture.create!(name: "#{n}名前",
-               email: "email#{n}@example.com",
-               image: open("#{Rails.root}/app/images/default.png")
+                email: "email#{n}@example.com",
+                image: open("#{Rails.root}/app/images/default.png")
               )
     Picture.create!(title: "kpkpkpk", description: "kppkpkp", user_id: 1,image: open("#{Rails.root}/app/images/default.png"))

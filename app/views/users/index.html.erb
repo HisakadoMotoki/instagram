@@ -1,2 +1,15 @@
 <% provide(:title, "ユーザー一覧")%>
-<%= render 'user', obj: @users %>
+<div class="color2">
+  <table>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user %></td>
+          <% if current_user.admin? %>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

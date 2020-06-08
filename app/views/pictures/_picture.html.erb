@@ -1,4 +1,12 @@
 <% obj.each do |pic| %>
-  <%= link_to image_tag(pic.image.url, class:"resize"), pic %>
-  <h2><%= link_to "Title: #{pic.title}", pic %></h2>
+  <%= link_to picture_path(pic) do %>
+    <%= image_tag(pic.image.url, class:"resize") %>
+    <h3><%= pic.title %>
+    <% if pic.favorites.count > 0 %>
+      <i class="fa fa-heart" style="color:red;"></i>
+    <% else %>
+      <i class="fa fa-heart-o" style="color:red;"></i>
+    <% end %>
+    </h3>
+  <% end %>
 <% end %>

@@ -3,11 +3,13 @@
     <div class="col-4 color1 side">
       <% if user_signed_in? %>
         <% provide(:title, current_user.name)%>
-        <%= render 'users/user_image', obj: current_user %><br>
-        <%= current_user.name %><br>
+        <div class="top-picture">
+          <%= render 'users/user_image', obj: current_user %><br>
+          <h1><%= current_user.name %></h1>
+        </div>
         <div class="index">
           <% current_user.followings.each do |user| %>
-            <ul><li><%= render 'users/user_image', obj: user %></li></ul>
+            <%= render 'users/user_image', obj: user %>
           <% end %>
         </div>
         <div class="color2 form">

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -20,23 +22,23 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-#画像のアップロード
+# 画像のアップロード
 gem 'carrierwave', '0.10.0'
 gem 'mini_magick', '3.8.0'
-#スタイリング
+# スタイリング
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
-#FB認証
+# FB認証
 gem 'omniauth'
 gem 'omniauth-facebook'
-#APIキーの非公開
+# APIキーの非公開
 gem 'dotenv-rails'
-#font
+# font
 gem 'font-awesome-rails'
 
-#gem 'masonry-rails'
-#Likeのアソシエーション
-#gem 'acts_as_votable'
+# gem 'masonry-rails'
+# Likeのアソシエーション
+# gem 'acts_as_votable'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -45,15 +47,16 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'sqlite3', '~> 1.4'
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'rubocop', '~> 0.78.0', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
@@ -67,6 +70,8 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'fog', '1.36.0'
+  gem 'pg'
 end
+
+gem "aws-sdk", "~> 2.3"

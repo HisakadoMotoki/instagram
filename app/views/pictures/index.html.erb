@@ -18,7 +18,7 @@
       <% else %>
         <div class="fixed">
           <button type="button" class="btn btn-outline-primary"><%= link_to "新規登録", new_user_registration_path %></button>
-          <button type="button" class="btn btn-outline-primary"><%= link_to "LogIn", new_user_session_path %></button>
+          <button type="button" class="btn btn-outline-primary"><%= link_to "LogIn", new_user_session_path %></button><br><br>
           <button type="button" class="btn btn-outline-primary"><%= link_to "FBからログイン", user_facebook_omniauth_callback_path %></button>
         </div>
       <% end %>

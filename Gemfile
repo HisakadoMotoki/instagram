@@ -20,10 +20,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-#画像のアップロード
-gem 'carrierwave', '0.10.0'
-gem 'mini_magick', '3.8.0'
-#スタイリング
+# 画像のアップロード
+gem 'carrierwave'
+gem 'mini_magick'
+# スタイリング
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 #FB認証
@@ -69,4 +69,5 @@ end
 group :production do
   gem 'pg'
   gem 'fog', '1.36.0'
+  gem 'rails_12factor'
 end

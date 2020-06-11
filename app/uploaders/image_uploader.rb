@@ -1,20 +1,11 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-<<<<<<< HEAD
   include CarrierWave::MiniMagick
   process resize_to_limit: [680, 680]
   # process resize_to_limit: [680, 680]
   # require "mini_magick"
   # process resize_to_limit: [400, 400]
-=======
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
-  #require "mini_magick"
-  #process resize_to_limit: [400, 400]
->>>>>>> parent of c9e6ba8... Configure Paperclip to use S3
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     storage :fog
@@ -37,21 +28,21 @@ class ImageUploader < CarrierWave::Uploader::Base
     "default.png"
   end
 
-  version :thumb do
-    process resize_to_fill: [150, 150, 'Center']
-  end
+  # version :thumb do
+  #   process resize_to_fill: [150, 150, 'Center']
+  # end
 
-  version :thumb50 do
-    process resize_to_fill: [50, 50, 'Center']
-  end
+  # version :thumb50 do
+  #   process resize_to_fill: [50, 50, 'Center']
+  # end
 
-  version :thumb30 do
-    process resize_to_fill: [30, 30, 'Center']
-  end
+  # version :thumb30 do
+  #   process resize_to_fill: [30, 30, 'Center']
+  # end
   
-  version :thumb300 do
-    process resize_to_fill: [300, 300, 'Center']
-  end
+  # version :thumb300 do
+  #   process resize_to_fill: [300, 300, 'Center']
+  # end
 
   # version :thumb300 do
   #   process resize_to_fill: [300, 300, 'Center']

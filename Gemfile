@@ -34,6 +34,8 @@ gem 'dotenv-rails'
 #font
 gem 'font-awesome-rails'
 
+gem "aws-sdk-s3", require: false
+
 #gem 'masonry-rails'
 #Likeのアソシエーション
 #gem 'acts_as_votable'

@@ -1,11 +1,20 @@
-# frozen_string_literal: true
+# encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
+<<<<<<< HEAD
   include CarrierWave::MiniMagick
   process resize_to_limit: [680, 680]
   # process resize_to_limit: [680, 680]
   # require "mini_magick"
   # process resize_to_limit: [400, 400]
+=======
+
+  # Include RMagick or MiniMagick support:
+  # include CarrierWave::RMagick
+  # include CarrierWave::MiniMagick
+  #require "mini_magick"
+  #process resize_to_limit: [400, 400]
+>>>>>>> parent of c9e6ba8... Configure Paperclip to use S3
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     storage :fog
@@ -21,11 +30,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extention_white_list
-    %w[jpg jpeg gif png]
+    %w(jpeg png)
   end
 
-  def default_url(*_args)
-    'default.png'
+  def default_url(*args)
+    "default.png"
   end
 
   version :thumb do
@@ -79,4 +88,5 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Picture < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
@@ -15,15 +13,14 @@ class Picture < ApplicationRecord
 
   def self.search(search)
     return Picture.all unless search
-
     Picture.where(['title LIKE ?', "%#{search}"])
   end
 
   def create_notification_favorite!(current_user)
     notification = current_user.active_notifications.new(
-      picture_id: id,
-      visited_id: user.id,
-      action: 'favorite'
+      picture_id:self.id,
+      visited_id:self.user.id,
+      action:"favorite"
     )
     notification.save if notification.valid?
   end
@@ -34,18 +31,20 @@ class Picture < ApplicationRecord
 
   def create_notification_comment!(current_user)
     notification = current_user.active_notifications.new(
-      picture_id: id,
-      # comment_id: comment_id,
-      visited_id: user.id,
-      action: 'comment'
+      picture_id:self.id,
+     # comment_id: comment_id,
+      visited_id:self.user.id,
+      action: "comment"
     )
     notification.save if notification.valid?
   end
-
+  
   private
+    # アップロードされた画像のサイズをバリデーションする
+    def image_size
+      if image.size > 5.megabytes
+        errors.add(:image, "should be less than 5MB")
+      end
+    end
 
-  # アップロードされた画像のサイズをバリデーションする
-  def image_size
-    errors.add(:image, 'should be less than 5MB') if image.size > 5.megabytes
-  end
 end

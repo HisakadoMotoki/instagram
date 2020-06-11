@@ -23,8 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 # 画像のアップロード
-gem 'carrierwave', '0.10.0'
-gem 'mini_magick', '3.8.0'
+gem 'carrierwave'
+gem 'mini_magick'
 # スタイリング
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'

@@ -1,13 +1,17 @@
 # frozen_string_literal: true
 
 class ImageUploader < CarrierWave::Uploader::Base
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
+  process resize_to_limit: [680, 680]
+  # process resize_to_limit: [680, 680]
   # require "mini_magick"
   # process resize_to_limit: [400, 400]
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  if Rails.env.production?
+    storage :fog
+  else
+    storage :file
+  end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -23,6 +27,27 @@ class ImageUploader < CarrierWave::Uploader::Base
   def default_url(*_args)
     'default.png'
   end
+
+  version :thumb do
+    process resize_to_fill: [150, 150, 'Center']
+  end
+
+  version :thumb50 do
+    process resize_to_fill: [50, 50, 'Center']
+  end
+
+  version :thumb30 do
+    process resize_to_fill: [30, 30, 'Center']
+  end
+  
+  version :thumb300 do
+    process resize_to_fill: [300, 300, 'Center']
+  end
+
+  # version :thumb300 do
+  #   process resize_to_fill: [300, 300, 'Center']
+  # end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:

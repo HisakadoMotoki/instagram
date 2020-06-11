@@ -20,17 +20,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-<<<<<<< HEAD
 # 画像のアップロード
 gem 'carrierwave'
 gem 'mini_magick'
 # スタイリング
-=======
-#画像のアップロード
-gem 'carrierwave', '0.10.0'
-gem 'mini_magick', '3.8.0'
-#スタイリング
->>>>>>> parent of c9e6ba8... Configure Paperclip to use S3
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 #FB認証

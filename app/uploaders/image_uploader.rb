@@ -21,7 +21,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def extention_white_list
-    %w(jpeg png)
+    %w(jpg jpeg gif png)
   end
 
   def default_url(*args)

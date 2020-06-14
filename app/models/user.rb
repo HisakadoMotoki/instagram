@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   def create_notification_follow!(current_user)
     notification = current_user.active_notifications.new(
-      visited_id: self.user.id,
+      visited_id: self.id,
       action: "follow"
     )
     notification.save if notification.valid?
